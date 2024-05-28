@@ -12,7 +12,7 @@ async function initApp() {
 }
 
 async function getPosts(){
-  const response = await fetch("https://headless.cederdorff.dk/wp-json/wp/v2/posts?acf_format=standard");
+  const response = await fetch("http://wp-test.basiaszafraniec.dk//wp-json/wp/v2/posts?acf_format=standard");
   const data = await response.json();
   return data;
 }
@@ -26,6 +26,8 @@ async function displayPostsGrid(posts){
       <article class="grid-item">
         <img src="${post.acf.image}" alt="${post.title.rendered}" />
         <h2>${post.title.rendered}</h2>
+        <p>${post.date}</p>
+        <p>${post.id}</p>
       </article>
     `
     );
